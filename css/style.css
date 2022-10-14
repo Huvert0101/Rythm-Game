@@ -1,0 +1,29 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.layout{
+    background-color: black;
+    margin: auto;
+    width: 50%;
+    height: 100vh;
+    border: 2px solid black;
+}
+.btns{
+    display: flex;
+    position: absolute;
+    bottom: 0px;
+    border:2px solid white;
+    width: 49.7%;
+    height: 20%;
+}
+.btn{
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: 100%;
+    color: white;
+}
