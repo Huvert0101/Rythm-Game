@@ -7,29 +7,6 @@ let k = document.getElementById("k");
 // Key pressing
 window.addEventListener('keypress', logKey);
 
-function logKey(e) {
-  switch (e.code) {
-    case "KeyF":
-        f.style.background = "white";
-        f.style.color = "black";
-        break;
-    case "KeyD":
-        d.style.background = "white";
-        d.style.color = "black";
-    break;
-    case "KeyJ":
-        j.style.background = "white";
-        j.style.color = "black";
-    break;
-    case "KeyK":
-        k.style.background = "white";
-        k.style.color = "black";
-    break;
-    default:
-        break;
-  }
-}
-
 // Key offs
 window.addEventListener("keyup", Keyoff);
 
@@ -55,3 +32,52 @@ function Keyoff(e){
         break;
     }
 }
+
+// Creating notes
+var note = document.createElement("div");
+note.id = "note";
+note.style.width = "180px";
+note.style.height = "300px";
+note.style.background = "white";
+note.style.position = "absolute";
+
+var displayNotes = document.getElementById("notes");
+displayNotes.append(note);
+
+// Main Loop
+var y = 0;
+function mainLoop(){
+    note.style.top = y + "px";
+    y++;
+}
+
+function logKey(e) {
+    switch (e.code) {
+      case "KeyF":
+          f.style.background = "white";
+          f.style.color = "black";
+          break;
+      case "KeyD":
+          if(note.style.top >= "300px"){
+            note.style.top = "0px";
+            y = 0;
+          }
+          d.style.background = "white";
+          d.style.color = "black";
+      break;
+      case "KeyJ":
+          j.style.background = "white";
+          j.style.color = "black";
+      break;
+      case "KeyK":
+          k.style.background = "white";
+          k.style.color = "black";
+      break;
+      default:
+          break;
+    }
+  }
+
+setInterval(() => {
+    mainLoop();
+}, 10);
