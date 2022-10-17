@@ -20,8 +20,6 @@ body{
     border: 2px solid white;Î
     width: 60%;
     height: 40%;Î
-}
-.gameOver h1{
     color: white;
 }
 .btns{
