@@ -14,15 +14,34 @@ body{
     border: 2px solid black;
 }
 .gameOver{
+    display: none;
     position: absolute;
     top: 20%;
-    left: 40%;
-    border: 2px solid white;Î
-    width: 60%;
-    height: 40%;Î
+    left: 30%;
+    border: 2px solid white;
+    width: 40%;
+    height: 40%;
+    padding: 30px;
 }
 .gameOver h1{
+    text-align: center;
     color: white;
+}
+#btnRest{
+    background: black;
+    color: white;
+    padding: 10px;
+    font-size: 26px;
+    border: 2px solid white;
+    cursor: pointer;
+    display: flex;
+    margin: auto;
+    margin-top: 40px;
+    transition: all ease 0.3s;
+}
+#btnRest:hover{
+    background: white;
+    color: black;
 }
 .btns{
     display: flex;

@@ -32,7 +32,6 @@ function Keyoff(e){
         break;
     }
 }
-
 // Creating notes
 var note = document.createElement("div");
 note.id = "note";
@@ -41,16 +40,26 @@ note.style.height = "300px";
 note.style.background = "white";
 note.style.position = "absolute";
 
+
 var displayNotes = document.getElementById("notes");
 displayNotes.append(note);
 
 // Main Loop
 var y = 0;
+var lostNotes = 0;
+var score = 0;
 function mainLoop(){
 	note.style.top = y + "px";
 	y = y + 10;
+	let scoreReact = document.getElementById("scoreReact");
+	scoreReact.innerText = score;
 	if(y == 800){
-		gameOver();
+		y = -400;
+	        lostNotes++;
+		note.style.top = "-400px";
+		if(lostNotes == 4){
+			gameOver();
+		}
 	}
 }
 
@@ -61,11 +70,11 @@ function logKey(e) {
           f.style.color = "black";
           break;
       case "KeyD":
-	  console.log(note.style.top);
           if(note.style.top >= "300px"){
             note.style.top = "-400px";
             y = -400;
 	  }
+	  score = score + 10;
           d.style.background = "white";
           d.style.color = "black";
       break;
@@ -81,9 +90,21 @@ function logKey(e) {
           break;
     }
 }
+// Game Over functions
 function gameOver(){
-	console.log("has perdido");
-	clearInterval(run);
+	note.remove();
+	let gameOverSign = document.querySelector(".gameOver");
+	gameOverSign.style.display = "block"; 
+	let scoreSign = document.getElementById("score");
+	scoreSign.innerText = score;
+}
+let btnReset = document.getElementById("btnRest");
+btnReset.onclick = () =>{
+	displayNotes.append(note);
+	let gameOverSign = document.querySelector(".gameOver");
+	gameOverSign.style.display = "none";
+	lostNotes = 0;
+	score = 0;
 }
 var run = setInterval(() => {
     mainLoop();

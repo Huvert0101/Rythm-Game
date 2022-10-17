@@ -18,6 +18,11 @@
             <div class="btn" id="k"><h1>K</h1></div>
         </div>
     </div>
+    <div class="gameOver">
+	    <h1>Game Over :c</h1>
+	    <h1>Score: <span id="score"></span></h1>
+	    <button id="btnRest">Reintentar</button>
+    </div>
     <script src="js/index.js"></script>
 </body>
 </html>
