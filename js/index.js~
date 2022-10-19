@@ -32,7 +32,6 @@ function Keyoff(e){
         break;
     }
 }
-
 // Creating notes
 var note = document.createElement("div");
 note.id = "note";
@@ -40,6 +39,7 @@ note.style.width = "180px";
 note.style.height = "300px";
 note.style.background = "white";
 note.style.position = "absolute";
+
 
 var displayNotes = document.getElementById("notes");
 displayNotes.append(note);
@@ -49,11 +49,20 @@ var y = 0;
 var lostNotes = 0;
 var score = 0;
 function mainLoop(){
+	displayNotes.append(note);
 	note.style.top = y + "px";
 	y = y + 10;
+	if(lostNotes >= 4){
+		var reactScore = document.getElementById("scoreReact");	
+		reactScore.innerText = 0;
+	}else{
+		var reactScore = document.getElementById("scoreReact");	
+		reactScore.innerText = score;
+	} 
 	if(y == 800){
 		y = -400;
 	        lostNotes++;
+		score = score -10;
 		note.style.top = "-400px";
 		if(lostNotes == 4){
 			gameOver();

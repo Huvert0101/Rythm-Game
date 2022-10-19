@@ -51,11 +51,17 @@ var score = 0;
 function mainLoop(){
 	note.style.top = y + "px";
 	y = y + 10;
-	let scoreReact = document.getElementById("scoreReact");
-	scoreReact.innerText = score;
+	if(lostNotes >= 4){
+		var reactScore = document.getElementById("scoreReact");	
+		reactScore.innerText = 0;
+	}else{
+		var reactScore = document.getElementById("scoreReact");	
+		reactScore.innerText = score;
+	} 
 	if(y == 800){
 		y = -400;
 	        lostNotes++;
+		score = score -10;
 		note.style.top = "-400px";
 		if(lostNotes == 4){
 			gameOver();
